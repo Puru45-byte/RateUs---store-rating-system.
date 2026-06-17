@@ -11,8 +11,6 @@ export default defineConfig({
   },
   datasource: {
     // DATABASE_URL (port 6543, pooler) for app runtime
-    // DIRECT_URL (port 5432, direct) for migrations — bypasses pgBouncer
     url: process.env["DATABASE_URL"],
-    directUrl: process.env["DIRECT_URL"],
   },
 });
