@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7C4DFF;
+  --color-primary-dark: #6D28D9;
+  --color-primary-light: #A78BFA;
+  --color-background: #F6F3FF;
+  --color-surface: #FFFFFF;
+  --color-surface-soft: #FAFAFC;
+  --color-heading: #0F172A;
+  --color-body: #475569;
+  --color-muted: #64748B;
+  --color-border: #E5E7EB;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-danger: #EF4444;
+  --color-gold: #FBBF24;
+  --color-lavender: #E9E3FD;
+
+  --radius-btn: 10px;
+  --radius-card: 16px;
+
+  --shadow-soft: 0 10px 25px -5px rgba(124, 77, 255, 0.05), 0 8px 16px -6px rgba(0, 0, 0, 0.03);
+  
+  --font-sans: 'Inter', 'Outfit', sans-serif;
+}
+
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-body);
+    font-family: 'Inter', 'Outfit', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-heading);
+    font-family: 'Outfit', 'Inter', sans-serif;
+    font-weight: 700;
+  }
+}

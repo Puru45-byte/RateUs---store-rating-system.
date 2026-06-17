@@ -1,0 +1,54 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  ADMIN
+  USER
+  STORE_OWNER
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String   @unique
+  password  String
+  address   String
+  role      Role     @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ratings   Rating[]
+  store     Store?   @relation("StoreOwner")
+}
+
+model Store {
+  id          String   @id @default(uuid())
+  name        String
+  email       String   @unique
+  address     String
+  ownerId     String?  @unique
+  owner       User?    @relation("StoreOwner", fields: [ownerId], references: [id])
+  createdAt   DateTime @default(now())
+  ratings     Rating[]
+}
+
+model Rating {
+  id        String   @id @default(uuid())
+  value     Int      // 1 to 5
+  userId    String
+  storeId   String
+  user      User     @relation(fields: [userId], references: [id])
+  store     Store    @relation(fields: [storeId], references: [id])
+  comment   String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, storeId])  // one rating per user per store, editable not duplicable
+}
