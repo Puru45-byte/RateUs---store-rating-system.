@@ -24,3 +24,10 @@ Thumbs.db
 
 # Prisma generated
 backend/prisma/migrations/
+
+# Reference/design files (not part of the app)
+assets/
+design-reference/
+templets/
+raw.txt
+*.pdf
